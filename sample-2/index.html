@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    
+    <link rel="shortcut icon" href="../img/favicon.ico">
+
+    
+    <title>Sample 2 - My Docs</title>
+    
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css">
+    <link href='//rsms.me/inter/inter.css' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,600,700&subset=latin-ext,latin' rel='stylesheet' type='text/css'>
+    <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+    <link href="../css/base.min.css" rel="stylesheet">
+    <link href="../css/cinder.min.css" rel="stylesheet">
+
+    
+        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/styles/github.min.css">
+        
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+            <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+        <![endif]-->
+
+    
+
+     
+</head>
+
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            
+
+            <!-- Main title -->
+
+            
+              <a class="navbar-brand" href="..">My Docs</a>
+            
+        </div>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                
+                
+                    <li >
+                        <a href="..">Welcome to MkDocs</a>
+                    </li>
+                
+                
+                
+                    <li >
+                        <a href="../sample-1/">Sample 1</a>
+                    </li>
+                
+                
+                
+                    <li class="active">
+                        <a href="./">Sample 2</a>
+                    </li>
+                
+                
+                </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                            <i class="fas fa-search"></i> Search
+                        </a>
+                    </li>
+                    <li >
+                        <a rel="prev" href="../sample-1/">
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </a>
+                    </li>
+                    <li class="disabled">
+                        <a rel="next" >
+                            Next <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <div class="container">
+        
+        
+        <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="first-level active"><a href="#quick-guide-how-to-use-nginx">🚀 Quick Guide: How to Use NGINX</a></li>
+            <li class="second-level"><a href="#1-install-nginx">1. Install NGINX</a></li>
+                
+                <li class="third-level"><a href="#on-ubuntudebian">On Ubuntu/Debian:</a></li>
+                <li class="third-level"><a href="#on-centos">On CentOS:</a></li>
+                <li class="third-level"><a href="#start-and-enable-nginx">Start and enable NGINX:</a></li>
+            <li class="second-level"><a href="#2-basic-commands">2. Basic Commands</a></li>
+                
+            <li class="second-level"><a href="#3-directory-structure">3. Directory Structure</a></li>
+                
+            <li class="second-level"><a href="#4-basic-web-server-setup">4. Basic Web Server Setup</a></li>
+                
+                <li class="third-level"><a href="#ubuntu-sites-available">Ubuntu (sites-available):</a></li>
+                <li class="third-level"><a href="#centos-confd">CentOS (conf.d):</a></li>
+            <li class="second-level"><a href="#5-reverse-proxy-setup">5. Reverse Proxy Setup</a></li>
+                
+            <li class="second-level"><a href="#6-load-balancing-basic">6. Load Balancing (Basic)</a></li>
+                
+            <li class="second-level"><a href="#7-ssltls-with-lets-encrypt-optional-but-recommended">7. SSL/TLS with Let’s Encrypt (Optional but Recommended)</a></li>
+                
+            <li class="second-level"><a href="#tips">✅ Tips</a></li>
+                
+    </ul>
+</div></div>
+        <div class="col-md-9" role="main">
+
+<p>Here's a <strong>quick guide on how to use NGINX</strong>, covering installation, basic configuration, and common tasks. NGINX is a powerful web server, reverse proxy, and load balancer.</p>
+<hr />
+<h2 id="quick-guide-how-to-use-nginx">🚀 Quick Guide: How to Use NGINX</h2>
+<h3 id="1-install-nginx">1. <strong>Install NGINX</strong></h3>
+<h4 id="on-ubuntudebian">On Ubuntu/Debian:</h4>
+<pre><code class="language-bash">sudo apt update
+sudo apt install nginx
+</code></pre>
+<h4 id="on-centos">On CentOS:</h4>
+<pre><code class="language-bash">sudo yum install epel-release
+sudo yum install nginx
+</code></pre>
+<h4 id="start-and-enable-nginx">Start and enable NGINX:</h4>
+<pre><code class="language-bash">sudo systemctl start nginx
+sudo systemctl enable nginx
+</code></pre>
+<p>Check status:</p>
+<pre><code class="language-bash">sudo systemctl status nginx
+</code></pre>
+<hr />
+<h3 id="2-basic-commands">2. <strong>Basic Commands</strong></h3>
+<pre><code class="language-bash">sudo systemctl stop nginx       # Stop NGINX
+sudo systemctl restart nginx    # Restart NGINX
+sudo systemctl reload nginx     # Reload config without downtime
+nginx -t                        # Test config for syntax errors
+</code></pre>
+<hr />
+<h3 id="3-directory-structure">3. <strong>Directory Structure</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Path</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/etc/nginx/</code></td>
+<td>Main config directory</td>
+</tr>
+<tr>
+<td><code>/etc/nginx/nginx.conf</code></td>
+<td>Main configuration file</td>
+</tr>
+<tr>
+<td><code>/etc/nginx/sites-available/</code></td>
+<td>Site configurations (Debian/Ubuntu)</td>
+</tr>
+<tr>
+<td><code>/etc/nginx/conf.d/</code></td>
+<td>Per-site config files (CentOS)</td>
+</tr>
+<tr>
+<td><code>/usr/share/nginx/html</code></td>
+<td>Default web root (CentOS)</td>
+</tr>
+<tr>
+<td><code>/var/www/html</code></td>
+<td>Default web root (Ubuntu)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4-basic-web-server-setup">4. <strong>Basic Web Server Setup</strong></h3>
+<p>Create a simple HTML site:</p>
+<pre><code class="language-bash">sudo nano /var/www/example.com/index.html
+</code></pre>
+<p>Add some HTML content:</p>
+<pre><code class="language-html">&lt;h1&gt;Hello from example.com&lt;/h1&gt;
+</code></pre>
+<p>Then create a server block in NGINX:</p>
+<h4 id="ubuntu-sites-available">Ubuntu (sites-available):</h4>
+<pre><code class="language-bash">sudo nano /etc/nginx/sites-available/example.com
+</code></pre>
+<h4 id="centos-confd">CentOS (conf.d):</h4>
+<pre><code class="language-bash">sudo nano /etc/nginx/conf.d/example.com.conf
+</code></pre>
+<p>Add this config:</p>
+<pre><code class="language-nginx">server {
+    listen 80;
+    server_name example.com www.example.com;
+
+    location / {
+        root /var/www/example.com;
+        index index.html;
+        try_files $uri $uri/ =404;
+    }
+}
+</code></pre>
+<p>Enable the site (Ubuntu only):</p>
+<pre><code class="language-bash">sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+</code></pre>
+<p>Test and reload:</p>
+<pre><code class="language-bash">sudo nginx -t
+sudo systemctl reload nginx
+</code></pre>
+<hr />
+<h3 id="5-reverse-proxy-setup">5. <strong>Reverse Proxy Setup</strong></h3>
+<p>Use NGINX as a reverse proxy to forward requests to another service (like Node.js or backend API):</p>
+<pre><code class="language-nginx">server {
+    listen 80;
+    server_name api.example.com;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
+</code></pre>
+<hr />
+<h3 id="6-load-balancing-basic">6. <strong>Load Balancing (Basic)</strong></h3>
+<pre><code class="language-nginx">upstream backend_servers {
+    server 192.168.1.10;
+    server 192.168.1.11;
+    server 192.168.1.12;
+}
+
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://backend_servers;
+    }
+}
+</code></pre>
+<hr />
+<h3 id="7-ssltls-with-lets-encrypt-optional-but-recommended">7. <strong>SSL/TLS with Let’s Encrypt (Optional but Recommended)</strong></h3>
+<p>Install Certbot:</p>
+<pre><code class="language-bash">sudo apt install certbot python3-certbot-nginx   # Ubuntu
+sudo yum install certbot python3-certbot-nginx   # CentOS
+</code></pre>
+<p>Obtain certificate:</p>
+<pre><code class="language-bash">sudo certbot --nginx -d example.com -d www.example.com
+</code></pre>
+<p>Certbot will automatically update your NGINX config to use HTTPS.</p>
+<hr />
+<h3 id="tips">✅ Tips</h3>
+<ul>
+<li>Always test NGINX config before reloading: <code>sudo nginx -t</code></li>
+<li>Keep configs clean and modular.</li>
+<li>Use tools like <a href="https://www.digitalocean.com/community/tools/nginx">NGINX Config Generator</a> if you're new.</li>
+<li>Logs are at <code>/var/log/nginx/access.log</code> and <code>/var/log/nginx/error.log</code>.</li>
+</ul>
+<hr />
+<p>Let me know if you want guides for specific setups like WordPress, Docker, HTTP/2, etc.!</p></div>
+        
+        
+    </div>
+
+    
+      <footer class="col-md-12 text-center">
+          
+          
+            <hr>
+            <p>
+            <small>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a>.</small>
+            </p>
+          
+
+          
+          
+      </footer>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap-3.0.3.min.js"></script>
+
+    
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.18.0/build/highlight.min.js"></script>
+        
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    <script>var base_url = ".."</script>
+    
+    <script src="../js/base.js"></script>
+    <script src="../search/main.js"></script>
+
+    <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+    </body>
+
+</html>
