@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KET 高频必默 100 词 - 深度词卡与盲听默写</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-light: #eef2ff;
+      --primary-border: #c7d2fe;
+      --success: #10b981;
+      --success-light: #ecfdf5;
+      --danger: #ef4444;
+      --danger-light: #fef2f2;
+      --dark: #0f172a;
+      --gray-dark: #334155;
+      --gray: #64748b;
+      --gray-light: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --accent: #8b5cf6;
+      --accent-light: #f5f3ff;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    body {
+      background-color: #f1f5f9;
+      color: var(--dark);
+      padding: 24px 16px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      width: 100%;
+      max-width: 760px;
+      background: var(--card-bg);
+      border-radius: 24px;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+      padding: 32px 28px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--primary-light);
+      color: var(--primary);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+    h1 {
+      font-size: 24px;
+      color: var(--dark);
+      margin-bottom: 6px;
+      font-weight: 800;
+    }
+    p.subtitle {
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 4px;
+      border-radius: 14px;
+      margin-bottom: 20px;
+      gap: 4px;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 9px 12px;
+      border: none;
+      background: transparent;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: #fff;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* Controls Bar */
+    .mode-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .btn-group {
+      display: flex;
+      gap: 8px;
+    }
+    .mode-btn {
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .mode-btn.active {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    /* Flashcard Card Box */
+    .card-box {
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 24px;
+      position: relative;
+      background: #ffffff;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+      transition: all 0.25s;
+    }
+    .word-index {
+      position: absolute;
+      top: 18px;
+      left: 24px;
+      font-size: 12px;
+      font-weight: 700;
+      color: #94a3b8;
+      background: #f1f5f9;
+      padding: 2px 10px;
+      border-radius: 6px;
+    }
+    .card-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 14px;
+      margin-bottom: 20px;
+    }
+    .word-title {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--dark);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .sound-btn {
+      background: var(--primary-light);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      transition: transform 0.15s, background-color 0.2s;
+    }
+    .sound-btn:hover {
+      transform: scale(1.1);
+      background: #e0e7ff;
+    }
+    .phonetic-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .phonetic {
+      font-family: serif;
+      color: var(--gray);
+      font-size: 16px;
+    }
+    .pos-tag {
+      font-size: 12px;
+      font-weight: 700;
+      background: #e2e8f0;
+      color: var(--gray-dark);
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .cn-badge {
+      display: inline-block;
+      font-size: 15px;
+      font-weight: 600;
+      color: #1e293b;
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      padding: 4px 14px;
+      border-radius: 8px;
+    }
+
+    /* English Definition Section */
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--gray);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .en-def-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 12px 16px;
+      border-radius: 4px 12px 12px 4px;
+      margin-bottom: 16px;
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: #1e293b;
+    }
+    .example-box {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 10px 16px;
+      border-radius: 4px 12px 12px 4px;
+      margin-bottom: 16px;
+      font-size: 13.5px;
+      color: #78350f;
+      font-style: italic;
+    }
+
+    /* Word Family / Derivatives */
+    .family-box {
+      background: var(--accent-light);
+      border: 1px solid #ddd6fe;
+      border-radius: 12px;
+      padding: 12px 16px;
+      margin-top: 4px;
+    }
+    .family-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .family-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .family-tag {
+      background: #ffffff;
+      border: 1px solid #c4b5fd;
+      color: #5b21b6;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 500;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    .family-tag strong {
+      font-weight: 700;
+      color: #4c1d95;
+    }
+
+    /* Dictation Form */
+    .dictation-form {
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: center;
+      padding-top: 10px;
+    }
+    .dict-input-wrap {
+      width: 100%;
+      max-width: 420px;
+      margin: 16px 0;
+      position: relative;
+    }
+    .dict-input {
+      width: 100%;
+      padding: 14px 20px;
+      font-size: 22px;
+      text-align: center;
+      font-weight: 700;
+      border: 2px solid #cbd5e1;
+      border-radius: 14px;
+      outline: none;
+      transition: all 0.2s;
+    }
+    .dict-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px var(--primary-light);
+    }
+    .dict-input.correct {
+      border-color: var(--success);
+      background: var(--success-light);
+      color: #065f46;
+    }
+    .dict-input.wrong {
+      border-color: var(--danger);
+      background: var(--danger-light);
+      color: #991b1b;
+    }
+    .result-feedback {
+      font-size: 14px;
+      font-weight: 600;
+      margin-top: 6px;
+      min-height: 24px;
+    }
+    .dict-reveal-box {
+      width: 100%;
+      margin-top: 16px;
+      display: none;
+    }
+
+    /* Nav Buttons */
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-btn {
+      padding: 10px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+      background: #f1f5f9;
+      color: #475569;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: #e2e8f0;
+      color: #1e293b;
+    }
+    .nav-btn.primary {
+      background: var(--primary);
+      color: #fff;
+    }
+    .nav-btn.primary:hover:not(:disabled) {
+      background: #4338ca;
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Progress & Score */
+    .progress-bar-wrap {
+      width: 100%;
+      height: 6px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--primary);
+      width: 0%;
+      transition: width 0.3s;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="badge">OpenMAIC · KET 必默 100 词</div>
+      <h1>Day 1~3 深度词卡与听音默写</h1>
+      <p class="subtitle">英英释义 · 词族衍生拓展（Word Family） · 快速盲写排雷</p>
+    </header>
+
+    <!-- Day Selector Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchDay(1)">Day 1 (1~9词)</button>
+      <button class="tab-btn" onclick="switchDay(2)">Day 2 (10~18词)</button>
+      <button class="tab-btn" onclick="switchDay(3)">Day 3 (19~26词)</button>
+      <button class="tab-btn" onclick="switchDay(0)">全部 26 词总复习</button>
+    </div>
+
+    <!-- Mode Toggle -->
+    <div class="mode-bar">
+      <span style="font-size: 13px; color: var(--gray); font-weight: 600;" id="statsCounter">第 1 / 9 词</span>
+      <div class="btn-group">
+        <button class="mode-btn active" id="btnModeCard" onclick="setMode('card')">📖 深度词卡</button>
+        <button class="mode-btn" id="btnModeDict" onclick="setMode('dict')">✍️ 听音默写</button>
+      </div>
+    </div>
+
+    <!-- Card Body -->
+    <div class="card-box" id="cardBox">
+      <span class="word-index" id="wordNo">#1 / 100</span>
+
+      <!-- Flashcard Content -->
+      <div id="flashcardContent">
+        <div class="card-header">
+          <div class="word-title">
+            <span id="wordText">relaxing</span>
+            <button class="sound-btn" onclick="speakCurrentWord()" title="播放英音朗读">🔊</button>
+          </div>
+          <div class="phonetic-row">
+            <span class="phonetic" id="wordPhonetic">/rɪˈlæksɪŋ/</span>
+            <span class="pos-tag" id="wordPos">adj.</span>
+            <span class="cn-badge" id="wordMeaning">令人放松的</span>
+          </div>
+        </div>
+
+        <!-- English Definition -->
+        <div class="section-title">
+          <span>📖 English Definition (英英原释义)</span>
+        </div>
+        <div class="en-def-box" id="wordEnDef">
+          Helping you to rest and become less anxious, tense, or stressed.
+        </div>
+
+        <!-- Sample Sentence -->
+        <div class="section-title">
+          <span>🎯 KET Exam Context (真题例句)</span>
+        </div>
+        <div class="example-box" id="wordExample">
+          "The music at the spa was very relaxing."
+        </div>
+
+        <!-- Word Family / Derivatives -->
+        <div class="family-box">
+          <div class="family-title">
+            <span>🌿 Word Family & Derivatives (相关衍生词 / 词族)</span>
+          </div>
+          <div class="family-tags" id="wordFamily">
+            <!-- Dynamic tags injected here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Dictation Content -->
+      <div class="dictation-form" id="dictationContent">
+        <button class="sound-btn" style="width: 52px; height: 52px; font-size: 24px; margin-bottom: 12px;" onclick="speakCurrentWord()" title="播放发音">🔊</button>
+        <div class="cn-badge" style="font-size: 16px; margin-bottom: 8px;" id="dictMeaning">令人放松的</div>
+        <div style="font-size: 13px; color: #64748b; font-weight: 500;" id="dictHint">首字母提示：r _ _ _ _ _ _ _</div>
+        
+        <div class="dict-input-wrap">
+          <input type="text" class="dict-input" id="dictInput" placeholder="输入拼写并回车 (Enter)" autocomplete="off">
+        </div>
+        <div class="result-feedback" id="resultFeedback"></div>
+
+        <!-- Extra reveal card in dictation mode -->
+        <div class="dict-reveal-box" id="dictRevealBox">
+          <div class="en-def-box" id="dictEnDef" style="margin-top: 10px; font-size: 13.5px;"></div>
+          <div class="family-box" style="margin-top: 8px;">
+            <div class="family-title"><span>🌿 相关衍生词</span></div>
+            <div class="family-tags" id="dictFamily"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="nav-bar">
+      <button class="nav-btn" id="btnPrev" onclick="prevWord()">上一词</button>
+      <button class="nav-btn primary" id="btnNext" onclick="nextWord()">下一词</button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-bar-wrap">
+      <div class="progress-bar-fill" id="progressFill"></div>
+    </div>
+  </div>
+
+  <script>
+    const WORDS = [
+      {
+        id: 1,
+        word: "relaxing",
+        phonetic: "/rɪˈlæksɪŋ/",
+        pos: "adj.",
+        meaning: "令人放松的",
+        enDef: "Helping you to rest, unwind, and become less anxious or tense.",
+        example: "The music at the spa was very relaxing.",
+        family: [
+          { word: "relax", pos: "v.", mean: "放松; 休息" },
+          { word: "relaxed", pos: "adj.", mean: "感到放松的" },
+          { word: "relaxation", pos: "n.", mean: "放松; 消遣" }
+        ]
+      },
+      {
+        id: 2,
+        word: "disappointed",
+        phonetic: "/ˌdɪsəˈpɔɪntɪd/",
+        pos: "adj.",
+        meaning: "失望的",
+        enDef: "Unhappy or sad because someone or something did not meet your hopes or expectations.",
+        example: "She was disappointed when her team lost the match.",
+        family: [
+          { word: "disappoint", pos: "v.", mean: "使失望" },
+          { word: "disappointing", pos: "adj.", mean: "令人失望的" },
+          { word: "disappointment", pos: "n.", mean: "失望; 沮丧" }
+        ]
+      },
+      {
+        id: 3,
+        word: "pleased",
+        phonetic: "/pliːzd/",
+        pos: "adj.",
+        meaning: "满意的; 高兴的",
+        enDef: "Happy or satisfied about a person, event, or situation.",
+        example: "He was pleased with his performance in the exam.",
+        family: [
+          { word: "please", pos: "v.", mean: "使高兴 / 请" },
+          { word: "pleasure", pos: "n.", mean: "愉快; 乐事" },
+          { word: "pleasant", pos: "adj.", mean: "令人愉悦的" },
+          { word: "pleasing", pos: "adj.", mean: "令人满意的" }
+        ]
+      },
+      {
+        id: 4,
+        word: "enjoyable",
+        phonetic: "/ɪnˈdʒɔɪəbl/",
+        pos: "adj.",
+        meaning: "愉快的; 有趣的",
+        enDef: "Giving pleasure, fun, or satisfaction.",
+        example: "The party was so enjoyable that no one wanted to leave.",
+        family: [
+          { word: "enjoy", pos: "v.", mean: "享受; 喜爱" },
+          { word: "enjoyment", pos: "n.", mean: "乐趣; 享受" },
+          { word: "enjoyably", pos: "adv.", mean: "愉快地" }
+        ]
+      },
+      {
+        id: 5,
+        word: "comfortable",
+        phonetic: "/ˈkʌmftəbl/",
+        pos: "adj.",
+        meaning: "舒服的; 舒适的",
+        enDef: "Providing physical ease, relaxation, and free from pain or constraint.",
+        example: "The new shoes are comfortable for walking long distances.",
+        family: [
+          { word: "comfort", pos: "n./v.", mean: "舒适; 安慰" },
+          { word: "comfortably", pos: "adv.", mean: "舒服地" },
+          { word: "uncomfortable", pos: "adj.", mean: "不舒服的" }
+        ]
+      },
+      {
+        id: 6,
+        word: "amazing",
+        phonetic: "/əˈmeɪzɪŋ/",
+        pos: "adj.",
+        meaning: "令人惊讶的; 太棒的",
+        enDef: "Extremely surprising, impressive, or wonderful.",
+        example: "The magician's tricks were amazing.",
+        family: [
+          { word: "amaze", pos: "v.", mean: "使大为惊奇" },
+          { word: "amazed", pos: "adj.", mean: "感到惊讶的" },
+          { word: "amazement", pos: "n.", mean: "惊奇; 惊愕" },
+          { word: "amazingly", pos: "adv.", mean: "令人惊奇地" }
+        ]
+      },
+      {
+        id: 7,
+        word: "fabulous",
+        phonetic: "/ˈfæbjələs/",
+        pos: "adj.",
+        meaning: "极好的; 绝妙的",
+        enDef: "Extremely good, marvellous, or impressive; celebrated in fable.",
+        example: "Her singing voice is fabulous.",
+        family: [
+          { word: "fable", pos: "n.", mean: "寓言; 神话" },
+          { word: "fabulously", pos: "adv.", mean: "极好地; 难以置信地" }
+        ]
+      },
+      {
+        id: 8,
+        word: "popular",
+        phonetic: "/ˈpɒpjələ/",
+        pos: "adj.",
+        meaning: "受欢迎的",
+        enDef: "Liked, enjoyed, or supported by many people or by a particular group.",
+        example: "Basketball is a popular sport among teenagers.",
+        family: [
+          { word: "popularity", pos: "n.", mean: "流行; 声望" },
+          { word: "population", pos: "n.", mean: "人口; 全体居民" },
+          { word: "populous", pos: "adj.", mean: "人口稠密的" },
+          { word: "populate", pos: "v.", mean: "居住于; 构成人口" }
+        ]
+      },
+      {
+        id: 9,
+        word: "dull",
+        phonetic: "/dʌl/",
+        pos: "adj.",
+        meaning: "枯燥的; 无聊的",
+        enDef: "Not interesting or exciting; boring; also lacking brightness or sharpness.",
+        example: "The lecture was so dull that many students fell asleep.",
+        family: [
+          { word: "dullness", pos: "n.", mean: "枯燥; 迟钝" },
+          { word: "dully", pos: "adv.", mean: "迟钝地; 暗淡地" }
+        ]
+      },
+      {
+        id: 10,
+        word: "fashionable",
+        phonetic: "/ˈfæʃnəbl/",
+        pos: "adj.",
+        meaning: "时髦的; 流行的",
+        enDef: "Following a style that is popular at a particular time.",
+        example: "Wearing a hat is fashionable this season.",
+        family: [
+          { word: "fashion", pos: "n.", mean: "时尚; 潮流" },
+          { word: "fashionably", pos: "adv.", mean: "时髦地" },
+          { word: "unfashionable", pos: "adj.", mean: "过时的; 不时兴的" }
+        ]
+      },
+      {
+        id: 11,
+        word: "sociable",
+        phonetic: "/ˈsəʊʃəbl/",
+        pos: "adj.",
+        meaning: "社交的; 好交际的",
+        enDef: "Liking to be with people; friendly and pleasant in company.",
+        example: "She is very sociable and enjoys attending parties.",
+        family: [
+          { word: "social", pos: "adj.", mean: "社会的; 社交的" },
+          { word: "society", pos: "n.", mean: "社会; 社团" },
+          { word: "socialize", pos: "v.", mean: "交际; 参与社交" },
+          { word: "sociably", pos: "adv.", mean: "好交际地" }
+        ]
+      },
+      {
+        id: 12,
+        word: "useful",
+        phonetic: "/ˈjuːsfl/",
+        pos: "adj.",
+        meaning: "有用的; 实用的",
+        enDef: "Effective; helping you to do or achieve something practical.",
+        example: "A dictionary is a useful tool for learning a new language.",
+        family: [
+          { word: "use", pos: "v./n.", mean: "使用; 用途" },
+          { word: "useless", pos: "adj.", mean: "无用的" },
+          { word: "usefully", pos: "adv.", mean: "有效地" },
+          { word: "user", pos: "n.", mean: "用户; 使用者" }
+        ]
+      },
+      {
+        id: 13,
+        word: "important",
+        phonetic: "/ɪmˈpɔːtnt/",
+        pos: "adj.",
+        meaning: "重要的; 重大的",
+        enDef: "Having high value or great effect; significant.",
+        example: "It's important to wear a helmet when riding a bike.",
+        family: [
+          { word: "importance", pos: "n.", mean: "重要性" },
+          { word: "importantly", pos: "adv.", mean: "重要地" },
+          { word: "unimportant", pos: "adj.", mean: "不重要的" }
+        ]
+      },
+      {
+        id: 14,
+        word: "awesome",
+        phonetic: "/ˈɔːsəm/",
+        pos: "adj.",
+        meaning: "极好的; 赞叹的",
+        enDef: "Extremely impressive, enjoyable, or very good.",
+        example: "The concert was so awesome that everyone was dancing.",
+        family: [
+          { word: "awe", pos: "n./v.", mean: "敬畏; 惊叹" },
+          { word: "awesomely", pos: "adv.", mean: "极好地" },
+          { word: "awestruck", pos: "adj.", mean: "充满敬畏的" }
+        ]
+      },
+      {
+        id: 15,
+        word: "special",
+        phonetic: "/ˈspeʃl/",
+        pos: "adj.",
+        meaning: "特别的; 专门的",
+        enDef: "Not ordinary or usual; different from others of the same type in a pleasant way.",
+        example: "She made a special cake for her son's birthday.",
+        family: [
+          { word: "especially", pos: "adv.", mean: "尤其地; 特别地" },
+          { word: "specialist", pos: "n.", mean: "专家" },
+          { word: "specialize", pos: "v.", mean: "专门研究/从事" },
+          { word: "specialty", pos: "n.", mean: "特产; 专长" }
+        ]
+      },
+      {
+        id: 16,
+        word: "fantastic",
+        phonetic: "/fænˈtæstɪk/",
+        pos: "adj.",
+        meaning: "极好的; 梦幻的",
+        enDef: "Extremely good, wonderful, or exciting.",
+        example: "The view from the top of the mountain was fantastic.",
+        family: [
+          { word: "fantasy", pos: "n.", mean: "幻想; 憧憬" },
+          { word: "fantastically", pos: "adv.", mean: "极好地; 奇特地" }
+        ]
+      },
+      {
+        id: 17,
+        word: "cheap",
+        phonetic: "/tʃiːp/",
+        pos: "adj.",
+        meaning: "便宜的",
+        enDef: "Costing little money or not costing more than usual.",
+        example: "These pens are cheap and good for students.",
+        family: [
+          { word: "cheaply", pos: "adv.", mean: "便宜地" },
+          { word: "cheapness", pos: "n.", mean: "廉价" },
+          { word: "inexpensive", pos: "adj.", mean: "[同义] 便宜的" }
+        ]
+      },
+      {
+        id: 18,
+        word: "agree",
+        phonetic: "/əˈɡriː/",
+        pos: "v.",
+        meaning: "同意; 赞同",
+        enDef: "To have the same opinion as someone else; to accept a suggestion.",
+        example: "I agree with your opinion on the importance of recycling.",
+        family: [
+          { word: "agreement", pos: "n.", mean: "同意; 协议" },
+          { word: "disagree", pos: "v.", mean: "不同意; 反对" },
+          { word: "agreeable", pos: "adj.", mean: "惬意的; 欣然同意的" }
+        ]
+      },
+      {
+        id: 19,
+        word: "disagree",
+        phonetic: "/ˌdɪsəˈɡriː/",
+        pos: "v.",
+        meaning: "不同意; 反对",
+        enDef: "To have a different opinion from someone else; to refuse to approve.",
+        example: "I disagree with the idea of having homework over the weekend.",
+        family: [
+          { word: "disagreement", pos: "n.", mean: "分歧; 争执" },
+          { word: "agree", pos: "v.", mean: "[反义] 同意" },
+          { word: "disagreeable", pos: "adj.", mean: "令人不快的" }
+        ]
+      },
+      {
+        id: 20,
+        word: "striped",
+        phonetic: "/straɪpt/",
+        pos: "adj.",
+        meaning: "有条纹的",
+        enDef: "Marked with stripes (long, narrow bands of different colors).",
+        example: "The striped shirt is my favorite.",
+        family: [
+          { word: "stripe", pos: "n.", mean: "条纹; 条带" },
+          { word: "stripy", pos: "adj.", mean: "带条纹的" }
+        ]
+      },
+      {
+        id: 21,
+        word: "spotted",
+        phonetic: "/ˈspɒtɪd/",
+        pos: "adj.",
+        meaning: "有斑点的; 圆点的",
+        enDef: "Covered or marked with small round spots of a different color.",
+        example: "The spotted dog was hiding behind the tree.",
+        family: [
+          { word: "spot", pos: "n./v.", mean: "斑点; 场所 / 发现" },
+          { word: "spotless", pos: "adj.", mean: "一尘不染的" },
+          { word: "spotty", pos: "adj.", mean: "多斑点的; 参差不齐的" }
+        ]
+      },
+      {
+        id: 22,
+        word: "warning",
+        phonetic: "/ˈwɔːnɪŋ/",
+        pos: "n.",
+        meaning: "警告; 警示",
+        enDef: "Something that tells you about possible danger, harm, or difficulty.",
+        example: "The warning sign says 'Beware of the Dog.'",
+        family: [
+          { word: "warn", pos: "v.", mean: "警告; 提醒" },
+          { word: "warned", pos: "adj.", mean: "被警告的" }
+        ]
+      },
+      {
+        id: 23,
+        word: "credit card",
+        phonetic: "/ˈkredɪt kɑːd/",
+        pos: "n.",
+        meaning: "信用卡",
+        enDef: "A small plastic card that allows you to buy things now and pay for them later.",
+        example: "You can pay with a credit card at this store.",
+        family: [
+          { word: "credit", pos: "n./v.", mean: "信用; 学分; 借贷" },
+          { word: "creditor", pos: "n.", mean: "债权人" },
+          { word: "debit card", pos: "n.", mean: "储蓄卡; 借记卡" }
+        ]
+      },
+      {
+        id: 24,
+        word: "cash",
+        phonetic: "/kæʃ/",
+        pos: "n.",
+        meaning: "现金",
+        enDef: "Money in the form of coins or banknotes, rather than cards or cheques.",
+        example: "Do you have enough cash for the tickets?",
+        family: [
+          { word: "cashier", pos: "n.", mean: "收银员; 出纳" },
+          { word: "cashless", pos: "adj.", mean: "无现金的" }
+        ]
+      },
+      {
+        id: 25,
+        word: "competition",
+        phonetic: "/ˌkɒmpəˈtɪʃn/",
+        pos: "n.",
+        meaning: "竞赛; 比赛",
+        enDef: "An organized event in which people try to win a prize by being the best.",
+        example: "She entered a cooking competition last week.",
+        family: [
+          { word: "compete", pos: "v.", mean: "竞争; 参赛" },
+          { word: "competitor", pos: "n.", mean: "竞争者; 选手" },
+          { word: "competitive", pos: "adj.", mean: "有竞争力的" },
+          { word: "competence", pos: "n.", mean: "胜任能力" }
+        ]
+      },
+      {
+        id: 26,
+        word: "match",
+        phonetic: "/mætʃ/",
+        pos: "n.",
+        meaning: "比赛; 火柴; 相配之物",
+        enDef: "A sports event between two teams or players; something that equals or matches another.",
+        example: "We are going to watch a football match tomorrow.",
+        family: [
+          { word: "match", pos: "v.", mean: "匹配; 较量" },
+          { word: "matching", pos: "adj.", mean: "相称的; 成对的" },
+          { word: "matchless", pos: "adj.", mean: "无比的; 无双的" }
+        ]
+      }
+    ];
+
+    let currentList = WORDS.slice(0, 9);
+    let currentIndex = 0;
+    let currentMode = 'card'; // 'card' or 'dict'
+
+    function switchDay(day) {
+      document.querySelectorAll('.tab-btn').forEach((b, idx) => {
+        b.classList.toggle('active', (day === 1 && idx === 0) || (day === 2 && idx === 1) || (day === 3 && idx === 2) || (day === 0 && idx === 3));
+      });
+      if (day === 1) currentList = WORDS.slice(0, 9);
+      else if (day === 2) currentList = WORDS.slice(9, 18);
+      else if (day === 3) currentList = WORDS.slice(18, 26);
+      else currentList = WORDS.slice(0, 26);
+
+      currentIndex = 0;
+      render();
+    }
+
+    function setMode(mode) {
+      currentMode = mode;
+      document.getElementById('btnModeCard').classList.toggle('active', mode === 'card');
+      document.getElementById('btnModeDict').classList.toggle('active', mode === 'dict');
+      render();
+      if (mode === 'dict') {
+        setTimeout(() => {
+          document.getElementById('dictInput').focus();
+          speakCurrentWord();
+        }, 150);
+      }
+    }
+
+    function renderFamilyTags(containerId, familyList) {
+      const container = document.getElementById(containerId);
+      container.innerHTML = '';
+      if (!familyList || familyList.length === 0) {
+        container.innerHTML = '<span style="font-size:12px; color:#94a3b8;">暂无派生词</span>';
+        return;
+      }
+      familyList.forEach(item => {
+        const tag = document.createElement('span');
+        tag.className = 'family-tag';
+        tag.innerHTML = `<strong>${item.word}</strong> <span style="font-size:11px; opacity:0.8;">(${item.pos} ${item.mean})</span>`;
+        container.appendChild(tag);
+      });
+    }
+
+    function render() {
+      const item = currentList[currentIndex];
+      const total = currentList.length;
+
+      document.getElementById('statsCounter').innerText = `第 ${currentIndex + 1} / ${total} 词`;
+      document.getElementById('wordNo').innerText = `#${item.id} / 100`;
+      document.getElementById('progressFill').style.width = `${((currentIndex + 1) / total) * 100}%`;
+
+      document.getElementById('btnPrev').disabled = currentIndex === 0;
+      document.getElementById('btnNext').innerText = currentIndex === total - 1 ? "完成本组 🎉" : "下一词";
+
+      if (currentMode === 'card') {
+        document.getElementById('flashcardContent').style.display = 'block';
+        document.getElementById('dictationContent').style.display = 'none';
+
+        document.getElementById('wordText').innerText = item.word;
+        document.getElementById('wordPhonetic').innerText = item.phonetic;
+        document.getElementById('wordPos').innerText = item.pos;
+        document.getElementById('wordMeaning').innerText = item.meaning;
+        document.getElementById('wordEnDef').innerText = item.enDef;
+        document.getElementById('wordExample').innerText = `"${item.example}"`;
+
+        renderFamilyTags('wordFamily', item.family);
+      } else {
+        document.getElementById('flashcardContent').style.display = 'none';
+        document.getElementById('dictationContent').style.display = 'flex';
+
+        document.getElementById('dictMeaning').innerText = `[${item.pos}] ${item.meaning}`;
+        const hint = item.word.split(' ').map(w => w[0] + ' ' + '_ '.repeat(w.length - 1)).join('   ');
+        document.getElementById('dictHint').innerText = `首字母线索：${hint}`;
+
+        const input = document.getElementById('dictInput');
+        input.value = '';
+        input.className = 'dict-input';
+        document.getElementById('resultFeedback').innerText = '';
+        document.getElementById('dictRevealBox').style.display = 'none';
+      }
+    }
+
+    let currentAudio = null;
+    const audioCache = new Map();
+
+    function getAudioForWord(wordText) {
+      if (!audioCache.has(wordText)) {
+        const audio = new Audio(`https://dict.youdao.com/dictvoice?audio=${encodeURIComponent(wordText)}&type=1`);
+        audio.preload = 'auto';
+        audioCache.set(wordText, audio);
+      }
+      return audioCache.get(wordText);
+    }
+
+    function speakCurrentWord() {
+      const item = currentList[currentIndex];
+      if (!item) return;
+
+      try {
+        if (currentAudio) {
+          currentAudio.pause();
+          currentAudio.currentTime = 0;
+        }
+
+        const audio = getAudioForWord(item.word);
+        currentAudio = audio;
+        audio.currentTime = 0;
+        const playPromise = audio.play();
+
+        if (playPromise !== undefined) {
+          playPromise.catch(() => {
+            fallbackSpeech(item.word);
+          });
+        }
+      } catch (err) {
+        fallbackSpeech(item.word);
+      }
+    }
+
+    function fallbackSpeech(wordText) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(wordText);
+        utterance.lang = 'en-GB';
+        utterance.rate = 1.0;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function nextWord() {
+      if (currentIndex < currentList.length - 1) {
+        currentIndex++;
+        render();
+        if (currentMode === 'dict') {
+          setTimeout(() => {
+            document.getElementById('dictInput').focus();
+            speakCurrentWord();
+          }, 150);
+        }
+      } else {
+        alert("🎉 恭喜！本组单词已全部过关！");
+      }
+    }
+
+    function prevWord() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        render();
+      }
+    }
+
+    // Dictation Enter Check
+    document.getElementById('dictInput').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        const item = currentList[currentIndex];
+        const val = this.value.trim().toLowerCase();
+        const fb = document.getElementById('resultFeedback');
+        const reveal = document.getElementById('dictRevealBox');
+
+        if (val === item.word.toLowerCase()) {
+          this.className = 'dict-input correct';
+          fb.style.color = '#10b981';
+          fb.innerText = '✅ 拼写完全正确！';
+
+          // Reveal English Def and Family
+          reveal.style.display = 'block';
+          document.getElementById('dictEnDef').innerText = `📖 英英释义: ${item.enDef}`;
+          renderFamilyTags('dictFamily', item.family);
+
+          setTimeout(() => {
+            nextWord();
+          }, 1600);
+        } else {
+          this.className = 'dict-input wrong';
+          fb.style.color = '#ef4444';
+          fb.innerText = `❌ 拼写有误，正确拼写是：${item.word}`;
+          reveal.style.display = 'block';
+          document.getElementById('dictEnDef').innerText = `📖 英英释义: ${item.enDef}`;
+          renderFamilyTags('dictFamily', item.family);
+          speakCurrentWord();
+        }
+      }
+    });
+
+    // Init
+    render();
+  </script>
+</body>
+</html>
