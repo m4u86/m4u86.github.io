@@ -1,95 +1,93 @@
-# OpenMAIC Stage Courseware: Day 28 - 百词全景图谱与题型突围
+# OpenMAIC Stage Courseware: Day 28 - KET 读写第 5 题完形填空题型突围
 
-> **课时定位**：阶段综合复盘与闯关课（覆盖词量：100 词）  
-> **教学核心**：KET 读写第 5 题完形填空全景演练 + 易错词库全筛查  
+> **课时定位**：KET 阅读与完形填空题型专题课（精选 32 核心考点词）  
+> **教学核心**：KET 完形填空高频考点突破：四大花费动词 + 连词逻辑 + 介词搭配 + 借还辨析  
 > **建议用时**：20 分钟  
 > **登场智能体角色（Roster）**：
-> - **Ms. Emma (主讲导师)**：聚焦 KET 考点点拨、用法辨析与真题避坑。
-> - **Toby (AI 助教)**：节奏把控者，负责闪卡计时、发音带读与听写判分。
-> - **Alex (学员化身/对练学伴)**：提出典型易错点，与学员共同完成费曼输出。
+> - **Ms. Emma (主讲导师)**：传授 KET 读写第 5 题（选词完形填空）解题技巧。
+> - **Toby (AI 助教)**：主导完形真题挖空练习与计时测试。
+> - **Alex (学员学伴)**：演示上下文逻辑推导与易混词排除法。
 
 ---
 
 ## 教学目标清单（Target Outcomes）
-1. **综合复盘**：全面自测检验所涵盖词汇的盲听认读与 100% 盲写拼写正确率。
-2. **语法融会贯通**：突破核心重难点（KET 读写第 5 题完形填空全景演练 + 易错词库全筛查），消除易错混淆。
-3. **真题应用**：在真实 KET 语篇、告示匹配与短文填空中自如识别并调用对应词汇。
+1. **题型突围**：掌握 KET 读写第 5 题（Multiple-choice cloze）做题黄金法则：看前后搭配、辨句子逻辑、查时态主语。
+2. **重点辨析网**：
+   - 四大花费动词：人做主语用 `spend` / `pay`，物做主语用 `cost` / `take`；
+   - 借还方向：向别人借入用 `borrow from`，借给别人用 `lend to`；
+   - 逻辑连词呼应：`as soon as` 遵循“主将从现”，`although` 引导让步状语从句（绝不与 but 连用）。
+3. **实战通关**：完成 1 篇全真 KET 完形填空小短文，达成满分。
 
 ---
 
-## Scene 1: Spiral Warm-up & Vocabulary Master Table（词汇全景，3 min）
+## Scene 1: Cloze Focus Vocabulary Master Table（完形高频词表，4 min）
 
-**[Toby 助教]**：“欢迎来到 Day 28！先通过标准词表查看本课的核心词汇、英英释义与词族衍生！”
-
-| 序号 | 单词 | 音标/词性 | 中文考义 | English Definition (英英原释义) | 词族与衍生词 (Word Family) |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | **relaxing** | /rɪˈlæksɪŋ/<br>adj. | 令人放松的 | Helping you to rest, unwind, and become less anxious or tense. | `relax` (v.), `relaxed` (adj.), `relaxation` (n.) |
-| 2 | **disappointed** | /ˌdɪsəˈpɔɪntɪd/<br>adj. | 失望的 | Unhappy or sad because someone or something did not meet your hopes or expectations. | `disappoint` (v.), `disappointing` (adj.), `disappointment` (n.) |
-| 3 | **pleased** | /pliːzd/<br>adj. | 满意的; 高兴的 | Happy or satisfied about a person, event, or situation. | `please` (v.), `pleasure` (n.), `pleasant` (adj.), `pleasing` (adj.) |
-| 4 | **enjoyable** | /ɪnˈdʒɔɪəbl/<br>adj. | 愉快的; 有趣的 | Giving pleasure, fun, or satisfaction. | `enjoy` (v.), `enjoyment` (n.), `enjoyably` (adv.) |
-| 5 | **comfortable** | /ˈkʌmftəbl/<br>adj. | 舒服的; 舒适的 | Providing physical ease, relaxation, and free from pain or constraint. | `comfort` (n./v.), `comfortably` (adv.), `uncomfortable` (adj.) |
-| 6 | **amazing** | /əˈmeɪzɪŋ/<br>adj. | 令人惊讶的; 太棒的 | Extremely surprising, impressive, or wonderful. | `amaze` (v.), `amazed` (adj.), `amazement` (n.), `amazingly` (adv.) |
-| 7 | **fabulous** | /ˈfæbjələs/<br>adj. | 极好的; 绝妙的 | Extremely good, marvellous, or impressive; celebrated in fable. | `fable` (n.), `fabulously` (adv.) |
-| 8 | **popular** | /ˈpɒpjələ/<br>adj. | 受欢迎的 | Liked, enjoyed, or supported by many people or by a particular group. | `popularity` (n.), `population` (n.), `populous` (adj.), `populate` (v.) |
-| 9 | **dull** | /dʌl/<br>adj. | 枯燥的; 无聊的 | Not interesting or exciting; boring; also lacking brightness or sharpness. | `dullness` (n.), `dully` (adv.) |
-| 10 | **fashionable** | /ˈfæʃnəbl/<br>adj. | 时髦的; 流行的 | Following a style that is popular at a particular time. | `fashion` (n.), `fashionably` (adv.), `unfashionable` (adj.) |
-| ... | *(共包含 100 词，请在交互网页中查看完整卡片)* | ... | ... | ... | ... |
+| 序号 | 单词 | 词性 | 中文考义 | 完形填空常考固定搭配 / 逻辑陷阱 |
+| :--- | :--- | :--- | :--- | :--- |
+| 29 | **instead** | adv. | 代替; 反而 | `instead of doing sth.`（常作为介词短语考查） |
+| 32 | **lend** | v. | 借出 | `lend sb. sth.` / `lend sth. to sb.` |
+| 33 | **borrow** | v. | 借入 | `borrow sth. from sb.`（与 lend 互为干扰项） |
+| 34 | **available** | adj. | 可用的; 有空的 | `available seats / tickets`，常考形容词后置修饰 |
+| 60 | **enough** | adj./adv. | 足够的 | 形容词后（`good enough`），名词前（`enough time`） |
+| 66 | **spend** | v. | 花费 | 人 + `spend time/money on sth. / (in) doing sth.` |
+| 67 | **pay** | v. | 支付 | 人 + `pay for sth.` / `pay in cash` / `pay by card` |
+| 68 | **cost** | v. | 价格为 | 物 + `cost sb. some money` |
+| 69 | **take** | v. | 花费(时间) | `It takes sb. some time to do sth.` |
+| 71 | **as soon as** | conj. | 一…就… | 引导时间状语从句，主句一般将来时，从句一般现在时 |
+| 72 | **although** | conj. | 尽管 | 引导让步状语从句，禁止与 but 在同一个句子里同时出现 |
 
 ---
 
-## Scene 2: High-Yield Masterclass & Pitfall Radar（核心考点与排雷，5 min）
+## Scene 2: Cloze Secrets Masterclass（完形核心考点解密，6 min）
 
-**[Ms. Emma 主讲导师]**：“关注本课最核心的考点与易混点，抓准得分关键！”
+### 技巧 1：四角花费动词转换公式（KET 必考！）
+- 题目：*“The movie ticket __________ me ten dollars.”*
+  - 找主语：The movie ticket（物）。
+  - 看后方：ten dollars（钱）。
+  - 判定：物花钱只能选 **cost**（排除 spend, pay, take）！
+- 题目：*“It will __________ an hour to finish the homework.”*
+  - 找句型：`It takes sb. time to do sth.` $	o$ 必选 **take**！
 
-### 💡 核心考点点拨：KET 读写第 5 题完形填空全景演练 + 易错词库全筛查
-- **重点 1（relaxing）**：令人放松的。典型真题例句：*“The music at the spa was very relaxing.”*。常考搭配注意其词性与介词关联。
-- **重点 2（disappointed）**：失望的。典型真题例句：*“She was disappointed when her team lost the match.”*。注意与其近义/反义词区分。
-
----
-
-## Scene 3: Deep Interactive / Micro-Quiz（真题微测，3 min）
-
-**[互动答题卡]**（学员在互动板上作答，智能体即时评分）：
-
-#### 题目 1（KET 选词完形情境）：
-> The teacher asked the class: "Who can ____________ this difficult sentence to us?"
-> A. borrow  
-> B. explain  
-> C. popular  
-> **【正确答案】** B  
-> **【解析】** 由 sentence（句子）与 to us 可知，此处意为“向我们解释（explain）”。
-
-#### 题目 2（KET 标识与搭配理解）：
-> 🪧 *Notice: "Special __________ on all school bags this Friday!"*
-> A. discount  
-> B. teenager  
-> C. stairs  
-> **【正确答案】** A  
-> **【解析】** special discount 为固定商业海报常用语，意为“特别折扣”。
+### 技巧 2：让步与转折连词的互斥法则
+- ❌ *Although it was raining, but we went out.* （典型中国学生常犯错误）
+- ✅ *Although it was raining, we went out.*
+- 完形选项中如果出现 although / because / but，一定要看前后两句话是顺承、因果还是转折！
 
 ---
 
-## Scene 4: Dictation Blitz（听音盲听必默，4 min）
+## Scene 3: Full Mock Cloze Practice（KET 完形填空真题全真模拟，5 min）
 
-**[Toby 助教]**：“听写时刻！请听发音并根据句子挖空，写出正确拼写！”
+> **Read the text below and choose the best word (A, B, or C) for each space:**
+>
+> Last Saturday, my brother and I went to the city center. We wanted to see a film, but we didn't have (1) ______ money for a taxi, so we took the bus (2) ______ . The cinema tickets (3) ______ twenty pounds for both of us. (4) ______ the film was quite long, we enjoyed every minute of it. (5) ______ the film ended, we went to a nearby cafe.
+>
+> 1. A. special &nbsp;&nbsp;&nbsp;&nbsp; B. enough &nbsp;&nbsp;&nbsp;&nbsp; C. usual  
+> 2. A. instead &nbsp;&nbsp;&nbsp;&nbsp; B. already &nbsp;&nbsp;&nbsp;&nbsp; C. finally  
+> 3. A. paid &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B. spent &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; C. cost  
+> 4. A. Although &nbsp;&nbsp; B. Because &nbsp;&nbsp;&nbsp; C. As soon as  
+> 5. A. At last &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; B. As soon as &nbsp; C. Instead  
 
-1. `[Audio]` */rɪˈlæksɪŋ/*  
-   👉 挖空：*The music at the spa was very ____________.* （答案：**relaxing**）
-2. `[Audio]` */ˌdɪsəˈpɔɪntɪd/*  
-   👉 挖空：*She was ____________ when her team lost the match.* （答案：**disappointed**）
-3. `[Audio]` */pliːzd/*  
-   👉 挖空：*He was ____________ with his performance in the exam.* （答案：**pleased**）
-4. `[Audio]` */ɪnˈdʒɔɪəbl/*  
-   👉 挖空：*The party was so ____________ that no one wanted to leave.* （答案：**enjoyable**）
+**【答案与解析】**
+1. **B (enough)**：`enough money` 意为“足够的钱”。
+2. **A (instead)**：句末副词 instead 意为“代替 / 反而（坐公交车代替乘出租车）”。
+3. **C (cost)**：主语是 The cinema tickets（电影票，物），物花钱用 cost。
+4. **A (Although)**：虽然电影很长（long），但我们很享受每一分钟（enjoyed），转折让步关系。
+5. **B (As soon as)**：`As soon as the film ended...` 意为“电影一结束，我们就去了附近的咖啡厅”。
 
 ---
 
-## Scene 5: Feynman Teach-Back Challenge（费曼输出，3 min）
+## Scene 4: Dictation Blitz（完形易错词听音默写，3 min）
 
-**[Alex 学伴]**：“嗨！今天学到的这些词，你能挑 1~2 个教我怎么在 KET 口语或写便条中运用吗？”
+1. `[Audio]` */kɒst/* 👉 答案：**cost**
+2. `[Audio]` */ɪnˈsted/* 👉 答案：**instead**
+3. `[Audio]` */ɪˈnʌf/* 👉 答案：**enough**
+4. `[Audio]` */ɔːlˈðəʊ/* 👉 答案：**although**
+5. `[Audio]` */əˈveɪləbl/* 👉 答案：**available**
 
-**[学员输出任务]**：
-1. 选用词汇：`relaxing`, `disappointed`, `pleased`；
-2. 尝试向学伴 Alex 说出 1 句日常情境英语表达，例如：
-   - *“The music at the spa was very relaxing.”*
-3. 恭喜完成 Day 28 的学习打卡！
+---
+
+## Scene 5: Feynman Teach-Back（费曼输出，2 min）
+
+**[Alex 学伴]**：“我总是搞混 lend 和 borrow，你能不能用一句话教我彻底记住？”  
+**[学员输出指引]**：  
+*“记住：lend 是‘借出’，把东西送出去（lend to sb.）；borrow 是‘借入’，把东西拿进来（borrow from sb.）！”*
